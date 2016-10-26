@@ -1,0 +1,13 @@
+﻿Der Buildvorgang wurde am 26.10.2016 15:39:03 gestartet.
+     1>Projekt "C:\Users\Alexander\Documents\RaspberryProjects\Faerie\Faerie\Faerie.vcxproj" auf Knoten "2", Build Ziel(e).
+     1>Build:
+         "C:\Program Files (x86)\Sysprogs\VisualGDB\VisualGDB.exe" /build "C:\Users\Alexander\Documents\RaspberryProjects\Faerie\Faerie\Faerie.vcxproj" "/solution:C:\Users\Alexander\Documents\RaspberryProjects\Faerie\Faerie.sln" "/config:Debug" "/platform:Win32"
+         VisualGDB: Sending 1 updated source file to build machine...
+         VisualGDB: Run "make CONFIG=Debug" in directory "/home/pi/programming/projects/Faerie" on pi@192.168.0.18 (SSH)
+         g++ -ggdb -ffunction-sections -O0 -std=gnu++11  -I/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/include -I/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/include/linux -DDEBUG=1  -c src/faerie_core/faerie_main.cpp -o Debug/faerie_main.o -MD -MF Debug/faerie_main.dep
+         g++ -o Debug/Faerie -Wl,-gc-sections   -Lusr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/lib -L/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre/lib -L/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre/lib/arm/client -L/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre/lib/arm/server -Wl,--start-group Debug/faerie_ears.o Debug/faerie_main.o Debug/wifi_connection_monitor.o -lespeak -ljvm  -Wl,--rpath='$ORIGIN'   -Wl,--end-group
+     1>Die Erstellung des Projekts "C:\Users\Alexander\Documents\RaspberryProjects\Faerie\Faerie\Faerie.vcxproj" ist abgeschlossen, Build Ziel(e).
+
+Build erfolgreich.
+
+Verstrichene Zeit 00:00:04.04
