@@ -88,7 +88,7 @@ public:
 	
 private:
 	
-	static const int s_beatsTillDisconnect = 3;//60*15;
+	static const int s_beatsTillDisconnect = 60 * 15; //3;
 	static const int s_beatsTillConnect = 3;
 	
 	char m_consoleBuffer[512];
