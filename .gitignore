@@ -52,3 +52,7 @@ VisualGDBCache/
 # Files
 Debug/Faerie.log
 .vs/Faerie/v14/.suo
+Debug/Faerie.log
+debug.mak
+debug.mak
+Faerie-Debug.vgdbsettings
