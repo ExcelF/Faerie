@@ -70,10 +70,12 @@
   <ItemGroup>
     <ClCompile Include="src\faerie_core\faerie_ears.cpp" />
     <ClCompile Include="src\faerie_core\faerie_main.cpp" />
+    <ClCompile Include="src\faerie_core\faerie_voice.cpp" />
     <ClCompile Include="src\wifi_connection_monitor\wifi_connection_monitor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\faerie_core\faerie_ears.h" />
+    <ClInclude Include="src\faerie_core\faerie_voice.h" />
     <ClInclude Include="src\wifi_connection_monitor\wifi_connection_monitor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

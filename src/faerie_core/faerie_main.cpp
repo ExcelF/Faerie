@@ -5,7 +5,7 @@
 #include <chrono>
 #include <unistd.h>
 #include "../faerie_core/faerie_ears.h"
-#include "../include/speak_lib.h"
+#include "../faerie_core/faerie_voice.h"
 #include "../wifi_connection_monitor/wifi_connection_monitor.h"
 
 
@@ -63,6 +63,14 @@ vector<MacAddressWithMessage*> locReadKnownMacAddressFile()
 
 int main()
 {
+	// ### INIT FAERIE EARS (SPEECH RECOGNITION)
+	FaerieEars myEars = FaerieEars();
+	myEars.Init();
+	
+	// ## INIT FAERIE VOICE (SPEECH SYNTHESIS)
+	FaerieVoice myVoice = FaerieVoice();
+	myVoice.Init();
+	
 	// Read known macAddresses
 	vector<MacAddressWithMessage*> macAddressesWithMessage;
 	macAddressesWithMessage = locReadKnownMacAddressFile();
@@ -71,32 +79,16 @@ int main()
 	WifiConnectionMonitor wifiMonitor = WifiConnectionMonitor();
 	wifiMonitor.AddListener((WifiConnectionMonitor::WifiConnectionMonitorListener) &locMainListener);
 	
-	// Speech synth init
-	espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 200, 0L, 0);
-	espeak_SetSynthCallback(synthCallback);
-	espeak_SetParameter(espeakRATE, 175, 0);
-	// Setup voice (female)
-	espeak_VOICE myVoice = espeak_VOICE();
-	//memset(&myVoice, 0, sizeof(espeak_VOICE));
-	myVoice.languages = "en-us";
-	myVoice.gender = 2; // 0=none, 1=male, 2=female
-	myVoice.age = 17;
-	espeak_SetVoiceByProperties(&myVoice);
-	const char myString [] = "Detected a new guest in our network. Hi!";
+	const char myString [] = "Detected a new guest in our network. Hai!";
 	const char yesString [] = "Yes?";
-	
-	
-	// ### INIT FAERIE EARS (SPEECH RECOGNITION)
-	FaerieEars myEars = FaerieEars();
-	myEars.Init();
-	
+	const char faerieOnlineString [] = "Fairy, On-line";
+		
 	bool quit = false;
 	bool isListening = false;
 	
 	while (!quit)
 	{
-		//std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-		//usleep(200);
+
 		if (myEars.GetRecognizerQueueSize() > 0)
 		{
 			std::string words = myEars.PopRecognizedString();
@@ -105,15 +97,7 @@ int main()
 			{
 				if (std::string::npos != words.rfind("fairy"))
 				{
-					espeak_Synth(yesString,
-						sizeof(yesString),
-						0,
-						espeak_POSITION_TYPE::POS_CHARACTER, 
-						0, 
-						espeakCHARS_8BIT | espeakENDPAUSE, 
-						nullptr, 
-						nullptr);
-					espeak_Synchronize(); // wait till message is spoken
+					myVoice.Say(yesString, sizeof(yesString));
 					isListening = true;
 				}
 			}
@@ -147,14 +131,8 @@ int main()
 			{
 				if (*macAddressesWithMessage[i] == *lastConnection)
 				{
-					espeak_Synth(macAddressesWithMessage[i]->m_Message.c_str(),
-						macAddressesWithMessage[i]->m_MessageLength * sizeof(char),
-						0,
-						espeak_POSITION_TYPE::POS_CHARACTER, 
-						0, 
-						espeakCHARS_8BIT | espeakENDPAUSE, 
-						nullptr, 
-						nullptr);
+					myVoice.Say(macAddressesWithMessage[i]->m_Message.c_str(),
+						macAddressesWithMessage[i]->m_MessageLength * sizeof(char));
 					playWelcomeMessage = false; // switch off default message
 				}
 			}
@@ -162,17 +140,9 @@ int main()
 		// Default message
 		if (playWelcomeMessage)
 		{
-			espeak_Synth(myString, 
-				sizeof(myString), 
-				0, 
-				espeak_POSITION_TYPE::POS_CHARACTER, 
-				0, 
-				espeakCHARS_8BIT | espeakENDPAUSE, 
-				nullptr, 
-				nullptr);
+			myVoice.Say(myString, sizeof(myString));
 		}
 		playWelcomeMessage = false;
-		espeak_Synchronize(); // wait till message is spoken
 	}
 	return 0;
 }

@@ -53,6 +53,9 @@
     <ClCompile Include="src\wifi_connection_monitor\wifi_connection_monitor.cpp">
       <Filter>Source files\WifiConnectionMonitor</Filter>
     </ClCompile>
+    <ClCompile Include="src\faerie_core\faerie_voice.cpp">
+      <Filter>Source files\Faerie</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\faerie_core\faerie_ears.h">
@@ -60,6 +63,9 @@
     </ClInclude>
     <ClInclude Include="src\wifi_connection_monitor\wifi_connection_monitor.h">
       <Filter>Source files\WifiConnectionMonitor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\faerie_core\faerie_voice.h">
+      <Filter>Source files\Faerie</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
