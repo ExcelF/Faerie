@@ -1,0 +1,9 @@
+#JSGF V1.0;
+
+grammar faerie_main;
+
+public <faerie> = (fairy);
+
+public <program_commands> = (quit | nothing);
+
+public <silence> = <NULL>;
