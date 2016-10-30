@@ -271,9 +271,19 @@ __pycache__/
 # Cake - Uncomment if you are using it
 # tools/
 
+# Makefile
+Makefile
+Makefile.old
+
+# Project files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+
 # VisualGDB
-Debug
-Release
+Debug/
+Release/
+*.vgdbsettings
 *.opensdf
 *.sdf
 *.suo
