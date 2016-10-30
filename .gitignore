@@ -270,3 +270,13 @@ __pycache__/
 
 # Cake - Uncomment if you are using it
 # tools/
+
+# VisualGDB
+Debug
+Release
+*.opensdf
+*.sdf
+*.suo
+*.old
+VisualGDBCache
+CodeDB
