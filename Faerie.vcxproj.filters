@@ -56,6 +56,9 @@
     <ClCompile Include="src\faerie_core\faerie_voice.cpp">
       <Filter>Source files\Faerie</Filter>
     </ClCompile>
+    <ClCompile Include="src\faerie_core\faerie.cpp">
+      <Filter>Source files\Faerie</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\faerie_core\faerie_ears.h">
@@ -65,6 +68,15 @@
       <Filter>Source files\WifiConnectionMonitor</Filter>
     </ClInclude>
     <ClInclude Include="src\faerie_core\faerie_voice.h">
+      <Filter>Source files\Faerie</Filter>
+    </ClInclude>
+    <ClInclude Include="src\faerie_core\faerie.h">
+      <Filter>Source files\Faerie</Filter>
+    </ClInclude>
+    <ClInclude Include="src\faerie_core\faerie_module.h">
+      <Filter>Source files\Faerie</Filter>
+    </ClInclude>
+    <ClInclude Include="src\faerie_core\faerie_speech_event.h">
       <Filter>Source files\Faerie</Filter>
     </ClInclude>
   </ItemGroup>
