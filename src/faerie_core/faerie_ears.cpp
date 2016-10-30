@@ -38,6 +38,12 @@ int FaerieEars::GetRecognizerQueueSize()
 	return i;
 }
 
+void FaerieEars::ClearRecognizerQueue()
+{
+	while (voce::getRecognizerQueueSize() > 0)
+		voce::popRecognizedString();
+}
+
 std::string FaerieEars::PopRecognizedString()
 {
 	return voce::popRecognizedString();

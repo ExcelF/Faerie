@@ -68,13 +68,17 @@
     <None Include="release.mak" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\faerie_core\faerie.cpp" />
     <ClCompile Include="src\faerie_core\faerie_ears.cpp" />
     <ClCompile Include="src\faerie_core\faerie_main.cpp" />
     <ClCompile Include="src\faerie_core\faerie_voice.cpp" />
     <ClCompile Include="src\wifi_connection_monitor\wifi_connection_monitor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\faerie_core\faerie.h" />
     <ClInclude Include="src\faerie_core\faerie_ears.h" />
+    <ClInclude Include="src\faerie_core\faerie_module.h" />
+    <ClInclude Include="src\faerie_core\faerie_speech_event.h" />
     <ClInclude Include="src\faerie_core\faerie_voice.h" />
     <ClInclude Include="src\wifi_connection_monitor\wifi_connection_monitor.h" />
   </ItemGroup>

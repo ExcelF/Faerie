@@ -82,6 +82,8 @@ int main()
 	const char myString [] = "Detected a new guest in our network. Hai!";
 	const char yesString [] = "Yes?";
 	const char faerieOnlineString [] = "Fairy, On-line";
+	
+	myVoice.Say(faerieOnlineString, sizeof(faerieOnlineString));
 		
 	bool quit = false;
 	bool isListening = false;
